@@ -1,25 +1,32 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet, Platform } from "react-native";
 
 import wateringImg from "../assets/watering.png";
 
 export function Welcome() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Gerencie suas plantas de forma fácil</Text>
       <Image source={wateringImg} />
       <Text>
-        Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
-        sempre que precisar.
+        Não esqueça mais de regar suas plantas. 
+        Nós cuidamos de lembrar você sempre que precisar.
       </Text>
-    </View>
+
+      <TouchableOpacity>
+        <Text>
+          >
+        </Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingTop: Platform.OS === 'android' ? 100 : 0
     },
 });
