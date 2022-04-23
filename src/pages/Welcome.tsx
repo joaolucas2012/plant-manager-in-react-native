@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, Text, Image, StyleSheet, Platform } from "react-native";
 
 import { Button } from "../components/Button";
