@@ -13,6 +13,7 @@ import { Feather } from '@expo/vector-icons'
 
 import wateringImg from "../assets/watering.png";
 import colors from "../styles/colors";
+import fonts from "../styles/fonts";
 
 export function Welcome() {
   return (
@@ -61,9 +62,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: "bold",
+    fontFamily: fonts.heading,
     textAlign: "center",
     color: colors.heading,
+    lineHeight: 38,
     paddingTop: Platform.OS === "android" ? 100 : 0,
   },
   subtitle: {
@@ -71,6 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingHorizontal: 7,
     color: colors.heading,
+    fontFamily: fonts.text,
   },
   image: {
     height: Dimensions.get('window').width * 0.7
