@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { 
   SafeAreaView,
+  View,
   Text, 
   Image, 
   TouchableOpacity,
@@ -20,36 +21,38 @@ export function Welcome() {
     <SafeAreaView 
       style={styles.container}
     >
-      <Text 
-        style={styles.title}
-      >
-        Gerencie {"\n"}
-        suas plantas de {"\n"}
-        forma fácil
-      </Text>
-      <Image 
-        source={wateringImg} 
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <Text 
-        style={styles.subtitle}
-      >
-        Não esqueça mais de regar suas {"\n"}
-        plantas. Nós cuidamos de lembrar você {"\n"}
-        sempre que precisar.
-      </Text>
-      <TouchableOpacity 
-        style={styles.button} 
-        activeOpacity={0.7}
-      >
-        <Text>
-          <Feather 
-            name="chevron-right"
-            style={styles.buttonIcon}
-          />
+      <View style={styles.wrapper}>
+        <Text 
+          style={styles.title}
+        >
+          Gerencie {"\n"}
+          suas plantas de {"\n"}
+          forma fácil
         </Text>
-      </TouchableOpacity>
+        <Image 
+          source={wateringImg} 
+          style={styles.image}
+          resizeMode="contain"
+        />
+        <Text 
+          style={styles.subtitle}
+        >
+          Não esqueça mais de regar suas {"\n"}
+          plantas. Nós cuidamos de lembrar você {"\n"}
+          sempre que precisar.
+        </Text>
+        <TouchableOpacity 
+          style={styles.button} 
+          activeOpacity={0.7}
+        >
+          <Text>
+            <Feather 
+              name="chevron-right"
+              style={styles.buttonIcon}
+            />
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -57,21 +60,24 @@ export function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  wrapper: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "space-around",
+    paddingHorizontal: 20
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontFamily: fonts.heading,
     textAlign: "center",
     color: colors.heading,
-    lineHeight: 38,
+    lineHeight: 32,
     paddingTop: Platform.OS === "android" ? 100 : 0,
   },
   subtitle: {
     textAlign: "center",
-    fontSize: 17,
-    paddingHorizontal: 7,
+    fontSize: 13,
     color: colors.heading,
     fontFamily: fonts.text,
   },
