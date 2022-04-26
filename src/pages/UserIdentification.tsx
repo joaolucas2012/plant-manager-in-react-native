@@ -6,30 +6,38 @@ import {
     View,
     Text,
     TextInput,
-    Dimensions
+    Dimensions,
+    KeyboardAvoidingView
 } from "react-native";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
+import { Button } from "../components/Button";
+
 export function UserIdentification(){
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.wrapper}>
-                <View style={styles.form}>
-                    <Text style={styles.emoji}>
-                        😃
-                    </Text>
-                    <Text style={styles.title}>
-                        Como podemos {"\n"}
-                        chamar você?
-                    </Text>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder="Digite um nome"
-                    />
+            <KeyboardAvoidingView style={styles.container}>
+                <View style={styles.wrapper}>
+                    <View style={styles.form}>
+                        <Text style={styles.emoji}>
+                            😃
+                        </Text>
+                        <Text style={styles.title}>
+                            Como podemos {"\n"}
+                            chamar você?
+                        </Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite um nome"
+                        />
+                        <View style={styles.footer}>
+                            <Button title="Confirmar" />
+                        </View>
+                    </View>
                 </View>
-            </View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
@@ -60,7 +68,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.heading,
         textAlign: "center",
         color: colors.body_dark,
-        marginTop: 20
+        marginTop: 17
     },
     input: {
         width: Dimensions.get('window').width * 0.75,
@@ -71,5 +79,9 @@ const styles = StyleSheet.create({
         marginTop: 40,
         padding: 10,
         textAlign: "center",
+    },
+    footer: {
+      marginTop: 40,
+      width: 231
     }
 });
