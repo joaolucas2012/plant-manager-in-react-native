@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { 
     StyleSheet,
@@ -7,7 +7,8 @@ import {
     Text,
     TextInput,
     Dimensions,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    Platform
 } from "react-native";
 
 import colors from "../styles/colors";
@@ -16,21 +17,41 @@ import fonts from "../styles/fonts";
 import { Button } from "../components/Button";
 
 export function UserIdentification(){
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleInputBlur = () => {
+        setIsFocused(false);
+    }
+
+    const handleInputFocus = () => {
+        setIsFocused(true);
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-            <KeyboardAvoidingView style={styles.container}>
+            <KeyboardAvoidingView 
+                style={styles.container}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            >
                 <View style={styles.wrapper}>
                     <View style={styles.form}>
-                        <Text style={styles.emoji}>
-                            😃
-                        </Text>
-                        <Text style={styles.title}>
-                            Como podemos {"\n"}
-                            chamar você?
-                        </Text>
+                        <View style={styles.header}>
+                            <Text style={styles.emoji}>
+                                😃
+                            </Text>
+                            <Text style={styles.title}>
+                                Como podemos {"\n"}
+                                chamar você?
+                            </Text>
+                        </View>
                         <TextInput 
-                            style={styles.input}
+                            style={[
+                                styles.input,
+                                isFocused && { borderColor: colors.green }
+                            ]}
                             placeholder="Digite um nome"
+                            onBlur={handleInputBlur}
+                            onFocus={handleInputFocus}
                         />
                         <View style={styles.footer}>
                             <Button title="Confirmar" />
@@ -52,6 +73,9 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         justifyContent: "space-around",
+    },
+    header: {
+        alignItems: 'center',
     },
     form: {
         flex: 1,
