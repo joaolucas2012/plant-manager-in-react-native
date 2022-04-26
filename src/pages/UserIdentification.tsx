@@ -56,9 +56,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
+        lineHeight: 32,
         fontFamily: fonts.heading,
-        color: colors.body_dark,
         textAlign: "center",
+        color: colors.body_dark,
+        marginTop: 20
     },
     input: {
         width: Dimensions.get('window').width * 0.75,
