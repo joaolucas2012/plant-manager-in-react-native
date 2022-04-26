@@ -10,7 +10,7 @@ export default {
   background: '#FFFFFF',
   shape: '#F0F0F0',
   white: '#FFFFFF',
-  gray: '#CFCFCF',
+  grey: '#CFCFCF',
 
   blue: '#3D7199',
   blue_light: '#EBF6FF',
