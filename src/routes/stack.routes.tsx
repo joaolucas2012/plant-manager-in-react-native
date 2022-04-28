@@ -7,30 +7,30 @@ import { Welcome } from '../pages/Welcome';
 import { UserIdentification } from '../pages/UserIdentification';
 import { Confirmation } from '../pages/Confirmation';
 
-import color from "../styles/colors";
+import colors from "../styles/colors";
 
 const stackRoutes = createNativeStackNavigator();
 
-const AppRoutes = React.FC = () => (
+const AppRoutes: React.FC = () => (
     <stackRoutes.Navigator
         headerMode="none"
         screenOptions={{
             cardStyle: {
                 backgroundColor: colors.white
-            }
+            },
         }}
     >
-        <stackRoutes.Screen
+        <stackRoutes.Screen 
             name="Welcome"
-            component={ Welcome }
+            component={Welcome}
         />
-        <stackRoutes.Screen
+        <stackRoutes.Screen 
             name="UserIdentification"
-            component={ UserIdentification }
+            component={UserIdentification}
         />
-        <stackRoutes.Screen
+        <stackRoutes.Screen 
             name="Confirmation"
-            component={ Confirmation }
+            component={Confirmation}
         />
     </stackRoutes.Navigator>
 );
