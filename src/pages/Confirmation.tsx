@@ -7,9 +7,10 @@ import {
     Text
 } from "react-native";
 
+import { Button } from "../components/Button";
+
 import fonts from "../styles/fonts";
 import colors from "../styles/colors";
-import { Button } from "../components/Button";
 
 export function Confirmation(){
     return(
@@ -38,36 +39,38 @@ export function Confirmation(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: "100%"
+        width: "100%",
+        justifyContent: "space-around",
     },
     wrapper: {
         flex: 1,
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
-    },
-    footer: {
-        marginTop: 40,
-        width: 231
+        padding: 30
     },
     header: {
         alignItems: "center"
     },
     emoji: {
-        fontSize: 60
+        fontSize: 78
     },
     title: {
-        color: colors.body_dark,
+        color: colors.heading,
         fontFamily: fonts.heading,
         fontSize: 24,
         textAlign: "center",
         marginTop: 40
     }, 
     subtitle: {
-        color: colors.body_dark,
+        color: colors.heading,
         fontFamily: fonts.text,
         fontSize: 15,
         textAlign: "center",
         marginTop: 16,
+    },
+    footer: {
+        marginTop: 40,
+        width: "75%"
     }
 });
