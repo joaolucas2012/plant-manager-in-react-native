@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         flex: 1,
-        width: '100%',
-        justifyContent: "space-around",
-        alignItems: "center"
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
     },
     footer: {
         marginTop: 40,
@@ -61,12 +61,13 @@ const styles = StyleSheet.create({
         fontFamily: fonts.heading,
         fontSize: 24,
         textAlign: "center",
-        marginTop: 25
+        marginTop: 40
     }, 
     subtitle: {
         color: colors.body_dark,
-        fontSize: 17,
+        fontFamily: fonts.text,
+        fontSize: 15,
         textAlign: "center",
-        marginTop: 25
+        marginTop: 16,
     }
 });
