@@ -7,17 +7,12 @@ import { Welcome } from '../pages/Welcome';
 import { UserIdentification } from '../pages/UserIdentification';
 import { Confirmation } from '../pages/Confirmation';
 
-import colors from "../styles/colors";
-
 const stackRoutes = createNativeStackNavigator();
 
 const AppRoutes: React.FC = () => (
     <stackRoutes.Navigator
-        headerMode="none"
         screenOptions={{
-            cardStyle: {
-                backgroundColor: colors.white
-            },
+            headerShown: false,
         }}
     >
         <stackRoutes.Screen 
