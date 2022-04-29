@@ -10,16 +10,31 @@ import {
     KeyboardAvoidingView,
     Platform
 } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+
+import { Button } from "../components/Button";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-import { Button } from "../components/Button";
 
 export function UserIdentification(){
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(false);
     const [name, setName] = useState<string>();
+
+    type Navigation = {
+        navigate: (value: string) => void;
+    }
+    
+    // const navigation = useNavigation();
+    const { navigate } = useNavigation<Navigation>();
+
+    // const navigation = useNavigation();
+
+    const handleSubmit = () => {
+        navigate("Confirmation");
+    }
 
     const handleInputBlur = () => {
         setIsFocused(false);
@@ -41,7 +56,7 @@ export function UserIdentification(){
                 style={styles.container}
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
-                <View style={styles.wrapper}>
+                <View style={styles.content}>
                     <View style={styles.form}>
                         <View style={styles.header}>
                             <Text style={styles.emoji}>
@@ -64,7 +79,10 @@ export function UserIdentification(){
                             onChangeText={handleInputChange}
                         />
                         <View style={styles.footer}>
-                            <Button title="Confirmar" />
+                            <Button 
+                                title="Confirmar" 
+                                onPress={handleSubmit}
+                            />
                         </View>
                     </View>
                 </View>
@@ -78,7 +96,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
     },
-    wrapper: {
+    content: {
         flex: 1,
         width: '100%',
         alignItems: 'center',

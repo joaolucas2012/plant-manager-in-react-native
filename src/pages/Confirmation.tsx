@@ -15,7 +15,7 @@ import colors from "../styles/colors";
 export function Confirmation(){
     return(
         <SafeAreaView style={styles.container}>
-            <View style={styles.wrapper}>
+            <View style={styles.content}>
                 <View style={styles.header}>
                     <Text style={styles.emoji}>
                         😁
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         width: "100%",
         justifyContent: "space-around",
     },
-    wrapper: {
+    content: {
         flex: 1,
         width: "100%",
         justifyContent: "center",
