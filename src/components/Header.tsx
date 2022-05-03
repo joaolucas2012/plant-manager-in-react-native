@@ -33,19 +33,18 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        paddingVertical: 20,
         marginTop: getStatusBarHeight(),
         padding: 30,
     },
     greeting: {
         fontFamily: fonts.text,
         color: colors.heading,
-        fontSize: 32,
+        fontSize: 29,
     },
     userName: {
         fontFamily: fonts.heading,
         color: colors.heading,
-        fontSize: 32,
+        fontSize: 29,
         lineHeight: 40,
     },
     userImage: {
