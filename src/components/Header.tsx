@@ -19,7 +19,6 @@ export function Header(){
                 <Text style={styles.greeting}>Olá,</Text>
                 <Text style={styles.userName}>João Lucas</Text>
             </View>
-
             <Image 
                 source={userImg}
                 style={styles.userImage}
