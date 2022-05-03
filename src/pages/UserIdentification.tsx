@@ -32,8 +32,6 @@ export function UserIdentification(){
     // const navigation = useNavigation();
     const { navigate } = useNavigation<Navigation>();
 
-    // const navigation = useNavigation();
-
     const handleSubmit = () => {
         navigate("Confirmation");
     }
