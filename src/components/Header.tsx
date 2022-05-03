@@ -9,17 +9,21 @@ import {
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
 import userImg from "../assets/joaolucas.png";
+import fonts from "../styles/fonts"
 import colors from "../styles/colors";
 
 export function Header(){
     return(
         <View style={styles.container}>
             <View>
-                <Text>Olá,</Text>
-                <Text>João Lucas</Text>
+                <Text style={styles.greeting}>Olá,</Text>
+                <Text style={styles.userName}>João Lucas</Text>
             </View>
 
-            <Image source={userImg} />
+            <Image 
+                source={userImg}
+                style={styles.userImage}
+            />
         </View>
     );
 };
@@ -32,5 +36,22 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingVertical: 20,
         marginTop: getStatusBarHeight(),
+        padding: 30,
+    },
+    greeting: {
+        fontFamily: fonts.text,
+        color: colors.heading,
+        fontSize: 32,
+    },
+    userName: {
+        fontFamily: fonts.heading,
+        color: colors.heading,
+        fontSize: 32,
+        lineHeight: 40,
+    },
+    userImage: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
     }
 });
