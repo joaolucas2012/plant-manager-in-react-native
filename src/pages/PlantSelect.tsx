@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
     View,
@@ -11,6 +11,8 @@ import { Header } from "../components/Header";
 
 import fonts from "../styles/fonts";
 import colors from '../styles/colors';
+
+import { EnvironmentButton } from "../components/EnvironmentButton";
 
 export function PlantSelect(){
     return(
@@ -25,6 +27,13 @@ export function PlantSelect(){
                         você quer colocar a sua planta?
                     </Text>
                 </View>
+            </View>
+            <View style={styles.buttonContainer}>
+                <EnvironmentButton title="Sala" />
+                <EnvironmentButton title="Quarto" active={true} />
+                <EnvironmentButton title="Cozinha" />
+                <EnvironmentButton title="Banheiro" />
+                <EnvironmentButton title="Sacada" />
             </View>
         </SafeAreaView>
     );
@@ -50,4 +59,8 @@ const styles = StyleSheet.create({
         fontFamily: fonts.text,
         color: colors.heading,
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        marginLeft: 30,
+    }
 });
