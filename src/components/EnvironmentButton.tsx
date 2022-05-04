@@ -43,7 +43,7 @@ export function EnvironmentButton({
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.shape,
-        marginRight: 10,
+        marginRight: 5,
         alignItems: 'center',
         textAlign: 'center',
         justifyContent: 'center',

@@ -4,7 +4,8 @@ import {
     View,
     Text,
     SafeAreaView,
-    StyleSheet
+    StyleSheet,
+    FlatList
 } from "react-native";
 
 import { Header } from "../components/Header";
@@ -28,12 +29,16 @@ export function PlantSelect(){
                     </Text>
                 </View>
             </View>
-            <View style={styles.buttonContainer}>
-                <EnvironmentButton title="Sala" />
-                <EnvironmentButton title="Quarto" active={true} />
-                <EnvironmentButton title="Cozinha" />
-                <EnvironmentButton title="Banheiro" />
-                <EnvironmentButton title="Sacada" />
+            <View>
+                <FlatList 
+                    data={[1,2,3,4,5]}
+                    renderItem={(item) => (
+                        <EnvironmentButton title="Quarto" active/>
+                    )}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.environmentList}
+                />
             </View>
         </SafeAreaView>
     );
@@ -59,8 +64,11 @@ const styles = StyleSheet.create({
         fontFamily: fonts.text,
         color: colors.heading,
     },
-    buttonContainer: {
-        flexDirection: 'row',
-        marginLeft: 30,
+    environmentList: {
+        height: 40,
+        justifyContent: 'center',
+        paddingBottom: 5,
+        paddingLeft: 30,
+        marginVertical: 5,
     }
 });
