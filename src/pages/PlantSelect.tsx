@@ -1,4 +1,7 @@
-import React from "react";
+import React, {
+    useEffect,
+    useState 
+} from "react";
 
 import {
     View,
@@ -9,13 +12,31 @@ import {
 } from "react-native";
 
 import { Header } from "../components/Header";
+import api from "../services/api";
 
 import fonts from "../styles/fonts";
 import colors from '../styles/colors';
 
 import { EnvironmentButton } from "../components/EnvironmentButton";
 
+interface EnvironmentProps {
+    key: string;
+    title: string;
+};
+
 export function PlantSelect(){
+
+    const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
+
+    useEffect(() => {
+        async function fetchEnvironment(){
+            const { data } = await api.get('plants_environments');
+            setEnvironments(data);
+        }
+
+        fetchEnvironment();
+
+    },[]);
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -31,9 +52,11 @@ export function PlantSelect(){
             </View>
             <View>
                 <FlatList 
-                    data={[1,2,3,4,5]}
-                    renderItem={(item) => (
-                        <EnvironmentButton title="Quarto" active/>
+                    data={environments}
+                    renderItem={({ item }) => (
+                        <EnvironmentButton 
+                            title={item.title}
+                        />
                     )}
                     horizontal
                     showsHorizontalScrollIndicator={false}
@@ -70,5 +93,5 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         paddingLeft: 30,
         marginVertical: 5,
-    }
+    },
 });
