@@ -19,24 +19,24 @@ import colors from '../styles/colors';
 
 import { EnvironmentButton } from "../components/EnvironmentButton";
 
-interface EnvironmentProps {
+interface Environments{
     key: string;
     title: string;
-};
+}
 
 export function PlantSelect(){
 
-    const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
+    const [environments, setEnvironments] = useState<Environments[]>([]);
 
     useEffect(() => {
-        async function fetchEnvironment(){
-            const { data } = await api.get('plants_environments');
+        async function FetchEnvironments(){
+            const { data } = await api.get("plants_environments");
             setEnvironments(data);
         }
 
-        fetchEnvironment();
-
+        FetchEnvironments();
     },[]);
+
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -53,7 +53,7 @@ export function PlantSelect(){
             <View>
                 <FlatList 
                     data={environments}
-                    renderItem={({ item }) => (
+                    renderItem={({item}) => (
                         <EnvironmentButton 
                             title={item.title}
                         />
