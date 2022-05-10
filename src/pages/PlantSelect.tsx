@@ -72,7 +72,7 @@ export function PlantSelect(){
                     </Text>
                 </View>
             </View>
-            <View style={styles.plants}>
+            <View>
                 <FlatList 
                     data={environments}
                     renderItem={({item}) => (
@@ -94,6 +94,7 @@ export function PlantSelect(){
                         />
                     )}
                     showsVerticalScrollIndicator={false}
+                    numColumns={2}
                 />
             </View>
         </SafeAreaView>
@@ -121,15 +122,16 @@ const styles = StyleSheet.create({
         color: colors.heading,
     },
     environmentList: {
-        height: 40,
+        height: 45,
         justifyContent: 'center',
         paddingBottom: 5,
-        paddingLeft: 30,
         marginVertical: 5,
+        paddingLeft: 30,
     },
     plants: {
         flex: 1,
-        paddingHorizontal: 32,
+        paddingHorizontal: 20,
+        marginTop: 30,
         justifyContent: 'center',
     },
 });
