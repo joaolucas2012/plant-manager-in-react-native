@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.shape,
         marginRight: 5,
+        marginBottom: 5,
         alignItems: 'center',
         textAlign: 'center',
         justifyContent: 'center',
-        width: 76,
-        height: 40,
+        width: 85,
+        height: 45,
         borderRadius: 12,
     },
     activeContainer: {
